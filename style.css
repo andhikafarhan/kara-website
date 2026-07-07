@@ -1182,13 +1182,18 @@ blockquote::before {
   }
 }
 
-/* Kontainer Utama Section */
+/* Kontainer Utama Section - Diperbarui untuk mengembalikan latar belakang asli */
 .about-brand-section {
   width: 100%;
-  padding: 60px 10%; /* Menyesuaikan jarak atas-bawah dan kanan-kiri */
+  padding: 80px 10%; /* Jarak atas bawah disesuaikan agar proporsional */
   box-sizing: border-box;
+  
+  /* MENYAMBUNGKAN KEMBALI GAMBAR LATAR BELAKANG */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('about-bg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
 /* Mengatur tata letak Flexbox: Konten di kiri, Tombol di kanan */
 .about-brand-container {
   display: flex;
