@@ -1194,12 +1194,24 @@ blockquote::before {
   position: relative;
 }
 
-/* Menargetkan tombol "Lihat Koleksi" di dalam section tersebut */
+/* Perbaikan agar tombol Lihat Koleksi bisa diklik kembali */
 .about-brand-container .btn-outline,
 section .btn-outline {
-  display: table; /* Membuat tombol menduduki ruangnya sendiri */
-  margin-left: auto; /* Ini kunci rahasia untuk mendorong tombol mentok ke kanan */
-  margin-right: 0;
-  margin-top: 25px; /* Memberikan jarak vertikal dari teks di atasnya */
-  text-align: center;
+  display: inline-block; /* Mengembalikan sifat dasar tombol agar fleksibel */
+  float: right; /* Cara alternatif yang sangat aman untuk mendorong tombol ke kanan */
+  clear: both; /* Memastikan tombol turun ke bawah setelah teks */
+  margin-top: 25px; /* Jarak aman dari teks di atasnya */
+  margin-bottom: 20px;
+  
+  /* KUNCI AGAR BISA DIKLIK */
+  position: relative; 
+  z-index: 10; /* Menaikkan lapisan tombol ke paling atas agar tidak tertutup elemen lain */
+  cursor: pointer; /* Memastikan kursor berubah menjadi lambang jari saat disentuh */
+}
+
+/* Memastikan container membersihkan efek float agar layout di bawahnya tidak rusak */
+.about-brand-container::after {
+  content: "";
+  display: table;
+  clear: both;
 }
