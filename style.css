@@ -1182,93 +1182,24 @@ blockquote::before {
   }
 }
 
-/* Kontainer Utama Section - Diperbarui untuk mengembalikan latar belakang asli */
-.about-brand-section {
-  width: 100%;
-  padding: 80px 10%; /* Jarak atas bawah disesuaikan agar proporsional */
-  box-sizing: border-box;
-  
-  /* MENYAMBUNGKAN KEMBALI GAMBAR LATAR BELAKANG */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('about-bg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-/* Mengatur tata letak Flexbox: Konten di kiri, Tombol di kanan */
-.about-brand-container {
+/* Mengatur area teks agar bisa membagi ruang dengan tombol */
+.about-brand-container, 
+.hero-content, 
+.showcase-content { 
+  /* Catatan: Ganti nama class di atas dengan nama class pembungkus teks asli yang kamu gunakan saat ini jika berbeda */
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+  align-items: flex-start;
+  position: relative;
 }
 
-/* Mengatur teks deskripsi agar fokus dan sedikit lebih besar */
-.about-brand-content {
-  flex: 1;
-  text-align: left; /* Teks deskripsi rata kiri agar seimbang dengan layout tombol kanan */
-}
-
-.sub-title {
-  display: block;
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  color: #ff5722; /* Sesuaikan dengan warna tema KARA Anda */
-}
-
-.main-title {
-  font-size: 32px; /* Ukuran diperbesar agar lebih eksklusif */
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 15px;
-}
-
-.brand-description {
-  font-size: 18px; /* Diperbesar agar lebih mudah dibaca dan dominan */
-  line-height: 1.6;
-  color: #e0e0e0; /* Sesuaikan tingkat kontras dengan gambar latar Anda */
-  max-width: 800px;
-}
-
-/* Desain Tombol Kotak Eksklusif di Sebelah Kanan (Tanpa Panah) */
-.about-brand-action {
-  flex-shrink: 0;
-}
-
-.btn-lihat-koleksi {
-  display: inline-block;
-  padding: 15px 35px;
-  border: 2px solid #ffffff; /* Kotak dengan garis tepi putih bersih */
-  background-color: transparent; /* Transparan agar menyatu dengan latar belakang asli */
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-}
-
-/* Efek Hover saat kursor menyentuh tombol */
-.btn-lihat-koleksi:hover {
-  background-color: #ffffff;
-  color: #000000; /* Warna teks berbalik saat di-hover agar interaktif */
-}
-
-/* Responsif untuk perangkat mobile / layar kecil */
-@media (max-width: 768px) {
-  .about-brand-container {
-    flex-direction: column; /* Berubah menjadi susunan vertikal jika di layar HP */
-    text-align: center;
-  }
-  .about-brand-content {
-    text-align: center;
-  }
-  .btn-lihat-koleksi {
-    width: 100%;
-    box-sizing: border-box;
-  }
+/* Memindahkan tombol ke kanan bawah */
+.about-brand-container a, 
+.hero-content a.btn, 
+.showcase-content .btn-lihat-koleksi {
+  /* Ganti selector di atas sesuai class tag <a> tombol kamu saat ini */
+  align-self: flex-end; /* Memindahkan elemen tombol ini saja ke ujung kanan */
+  margin-top: 20px; /* Memberi jarak aman dari teks di atasnya */
+  margin-right: 5%; /* Memberi jarak agar tidak terlalu mentok ke kanan layar */
 }
