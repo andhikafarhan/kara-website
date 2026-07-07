@@ -1194,24 +1194,28 @@ blockquote::before {
   position: relative;
 }
 
-/* Perbaikan agar tombol Lihat Koleksi bisa diklik kembali */
+/* Perbaikan posisi tombol menggunakan Flexbox agar bisa diklik kembali */
 .about-brand-container .btn-outline,
 section .btn-outline {
-  display: inline-block; /* Mengembalikan sifat dasar tombol agar fleksibel */
-  float: right; /* Cara alternatif yang sangat aman untuk mendorong tombol ke kanan */
-  clear: both; /* Memastikan tombol turun ke bawah setelah teks */
-  margin-top: 25px; /* Jarak aman dari teks di atasnya */
-  margin-bottom: 20px;
+  display: inline-block; /* Kembalikan ke sifat tombol asli */
+  float: none;           /* Hapus efek float yang merusak klik */
+  clear: none;
   
-  /* KUNCI AGAR BISA DIKLIK */
-  position: relative; 
-  z-index: 10; /* Menaikkan lapisan tombol ke paling atas agar tidak tertutup elemen lain */
-  cursor: pointer; /* Memastikan kursor berubah menjadi lambang jari saat disentuh */
+  /* Geser ke kanan menggunakan margin otomatis */
+  margin-left: auto;     
+  margin-right: 5%;      
+  margin-top: 25px;      
+  
+  /* Perkuat lapisan klik */
+  position: relative;
+  z-index: 999;          /* Naikkan ke lapisan tertinggi agar tidak terhalang */
+  cursor: pointer;       
+  pointer-events: auto;  /* Memaksa browser mengaktifkan sensor klik */
 }
 
-/* Memastikan container membersihkan efek float agar layout di bawahnya tidak rusak */
-.about-brand-container::after {
-  content: "";
-  display: table;
-  clear: both;
+/* Pastikan pembungkus utamanya mengizinkan elemen di dalamnya untuk bergeser */
+.about-brand-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
