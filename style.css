@@ -1194,12 +1194,12 @@ blockquote::before {
   position: relative;
 }
 
-/* Memindahkan tombol ke kanan bawah */
-.about-brand-container a, 
-.hero-content a.btn, 
-.showcase-content .btn-lihat-koleksi {
-  /* Ganti selector di atas sesuai class tag <a> tombol kamu saat ini */
-  align-self: flex-end; /* Memindahkan elemen tombol ini saja ke ujung kanan */
-  margin-top: 20px; /* Memberi jarak aman dari teks di atasnya */
-  margin-right: 5%; /* Memberi jarak agar tidak terlalu mentok ke kanan layar */
+/* Menargetkan tombol "Lihat Koleksi" di dalam section tersebut */
+.about-brand-container .btn-outline,
+section .btn-outline {
+  display: table; /* Membuat tombol menduduki ruangnya sendiri */
+  margin-left: auto; /* Ini kunci rahasia untuk mendorong tombol mentok ke kanan */
+  margin-right: 0;
+  margin-top: 25px; /* Memberikan jarak vertikal dari teks di atasnya */
+  text-align: center;
 }
